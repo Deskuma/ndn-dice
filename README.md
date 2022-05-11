@@ -90,7 +90,7 @@ output:
 
 ## License
 
-[MIT License](LINCENSE)
+[MIT License](LICENSE)
 
 ## Contributors
 
