@@ -54,7 +54,7 @@ print()
 
 # -----------------------------------------------------------------------------
 # Use case: 4
-res = ndice.Dice('3d6').roll().get_result_hash()
+res = ndice.Dice('3d6').roll().to_get_all()
 print('result:', res)
 # e.g.
 # result: {'result': 7, 'dice': '3d6', 'history': [[3, 3, 1]], 'judge': None}

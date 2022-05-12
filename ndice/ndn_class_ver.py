@@ -116,6 +116,13 @@ class Dice:
         self.__update_result()
         return self
 
+    def to_get_all(self):
+        """
+        Get all properties.
+        :return: all result to hash
+        """
+        return self.get_result_hash()
+
     def get_result_hash(self):
         """Get result hash table"""
         # Hash table containing 'result', 'dice', 'history', and 'judge'
@@ -267,7 +274,8 @@ class Dice:
     def __str__(self):
         """Return string"""
         return "dice: %s, result: %d, judge: %s, history: %s" % \
-         (self.get_dice(), self.get_result(), self.get_judge(), self.get_history())
+            (self.get_dice(), self.get_result(),
+             self.get_judge(), self.get_history())
 
     def __repr__(self):
         """Return string"""
