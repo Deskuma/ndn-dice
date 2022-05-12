@@ -2,7 +2,7 @@
 
 nDn Dice is a dice roller for Python.
 It supports nDn notation.
-It is a Python module. (Pending)
+It is a Python module.
 
 ## Description
 
@@ -20,11 +20,11 @@ It is a Python module. (Pending)
 #   extended_dice_rule:
 #       dice_rule + dice_rule | dice_rule - dice_rule
 #   modifier:
-#       +<number> or -<number> or
-#       *<number> or /<number> or
-#       %<number> or ^<number>
+#       <modifier_prefix><number>
+#   modifier_prefix:
+#       +, -, *, /, %, ^
 #   judge:
-#       <judge_prefix> <judge_number>
+#       <judge_prefix><number>
 #   judge_prefix:
 #       >, <, =, >=, <=, !=
 # e.g.
@@ -53,14 +53,29 @@ import ndice
 dice = ndice.Dice()
 r = dice.roll('1d6+2d8<10')
 print(r)
+# dice: 1d6+2d8<10, result: 10, judge: False, history: [False, [3], [5, 2]]
 ```
 
 ```python
 >>> import ndice
 >>> dice = ndice.Dice('1d6+2d8<10').roll()
 >>> dice
-{'result': 20, 'dice': '1d6+2d8<10', 'history': [False, [5], [8, 7]], 'judge': False}
->>> 
+dice: 1d6+2d8<10, result: 9, judge: True, history: [True, [1], [5, 3]]
+>>>
+>>> # get result hash table
+>>> dice.get_result_hash()
+{'result': 9, 'dice': '1d6+2d8<10', 'history': [True, [1], [5, 3]], 'judge': True}
+>>> dice.get_result_hash()['history']
+[True, [1], [5, 3]]
+>>> dice.get_result_hash()['judge']
+True
+>>> # reroll dice
+>>> dice.roll()
+dice: 1d6+2d8<10, result: 14, judge: False, history: [False, [6], [5, 3]]
+>>> dice.roll()
+dice: 1d6+2d8<10, result: 16, judge: False, history: [False, [3], [7, 6]]
+>>> dice.roll()
+dice: 1d6+2d8<10, result: 13, judge: False, history: [False, [5], [2, 6]]
 ```
 
 ## Documentation
