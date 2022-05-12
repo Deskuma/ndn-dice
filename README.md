@@ -78,6 +78,12 @@ dice: 1d6+2d8<10, result: 16, judge: False, history: [False, [3], [7, 6]]
 dice: 1d6+2d8<10, result: 13, judge: False, history: [False, [5], [2, 6]]
 ```
 
+## Installation
+
+```bash
+pip install git+https://github.com/Deskuma/ndn-dice
+```
+
 ## Documentation
 
 nDn Dice is a dice roller for Python.
@@ -133,6 +139,9 @@ history: [True, [4], [2, 6], [-3, -4, -3], [8, 7, 2, 7, 7], [-7], [52], '%19']
   - return to self
 
 ## TODO
+
+- Test cases & Unit tests
+- Examples
 
 ## References
 
