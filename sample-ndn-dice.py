@@ -8,6 +8,7 @@ import ndice
 
 # -----------------------------------------------------------------------------
 # Use case: 1
+print('----- Use case: 1 -----')
 dice = ndice.Dice()
 r = dice.roll('3d6')
 print(r)
@@ -23,6 +24,7 @@ print()
 
 # -----------------------------------------------------------------------------
 # Use case: 2
+print('----- Use case: 2 -----')
 dice = ndice.Dice('3d6-2d6+6>=15')
 for _ in range(5):
     r = dice.roll()
@@ -37,6 +39,7 @@ print()
 
 # -----------------------------------------------------------------------------
 # Use case: 3
+print('----- Use case: 3 -----')
 dice = ndice.Dice()
 dice.set_dice_rule('3d6-2d6*2<5')
 print('dice>', dice.get_dice_rule())
@@ -54,8 +57,33 @@ print()
 
 # -----------------------------------------------------------------------------
 # Use case: 4
+print('----- Use case: 4 -----')
 res = ndice.Dice('3d6').roll().to_get_all()
 print('result:', res)
 # e.g.
 # result: {'result': 7, 'dice': '3d6', 'history': [[3, 3, 1]], 'judge': None}
+print()
+
+# -----------------------------------------------------------------------------
+# Use case: 5
+print('----- Use case: 5 -----')
+res = ndice.Dice('7d6', seed=0).roll().to_get_all()
+print('result:', res)
+res = ndice.Dice('7d6', seed=0).roll().to_get_all()
+print('result:', res)
+res = ndice.Dice('7d6', seed=0).roll().to_get_all()
+print('result:', res)
+print()
+
+# -----------------------------------------------------------------------------
+# Use case: 6
+print('----- Use case: 6 -----')
+dice_rule = '5d6-3d20'
+seed = 0
+for _ in range(3):
+    res = ndice.Dice(dice_rule, seed=seed).roll().to_get_all()
+    print('result:', res)
+for _ in range(3):
+    res = ndice.Dice(dice_rule, seed=seed, algo=ndice.Dice.ALGO_NUMPY).roll().to_get_all()
+    print('result:', res)
 print()

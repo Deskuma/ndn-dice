@@ -84,6 +84,12 @@ dice: 1d6+2d8<10, result: 13, judge: False, history: [False, [5], [2, 6]]
 pip install git+https://github.com/Deskuma/ndn-dice
 ```
 
+## Source Code
+
+```bash
+git clone https://github.com/Deskuma/ndn-dice.git
+```
+
 ## Documentation
 
 nDn Dice is a dice roller for Python.
@@ -126,21 +132,25 @@ history: [True, [4], [2, 6], [-3, -4, -3], [8, 7, 2, 7, 7], [-7], [52], '%19']
 
 ## License
 
-[MIT License](LICENSE)
+[MIT License, BEER-WARE](LICENSE)
 
 ## Contributors
 
 ## Changelog
 
-- 2022-05-11: v1.0.0
-  - Initial release
+- 2022-06-06: v1.0.2a
+  - dice shell command
+  - numpy random support (experimental)
+  - Test cases & Unit tests
+  - refactored
 - 2022-05-13: v1.0.1
   - Add new modifier and judge rule
   - return to self
+- 2022-05-11: v1.0.0
+  - Initial release
 
 ## TODO
 
-- Test cases & Unit tests
 - Examples
 
 ## References
